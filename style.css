@@ -1,5 +1,7 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
 
+/* Reset and base styles for all elements */
 * {
   margin: 0;
   padding: 0;
@@ -7,20 +9,22 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Define root CSS variables for colors */
 :root {
-  --bg: #f4f7fd;
-  --primary: #000112;
-  --secondary: #fff;
-  --tertiary: #828fa3;
-  --accent: #635fc7;
+  --bg: #f4f7fd;         /* Light background */
+  --primary: #000112;    /* Main text color */
+  --secondary: #fff;     /* Secondary surfaces like cards */
+  --tertiary: #828fa3;   /* Subdued text */
+  --accent: #635fc7;     /* Accent color for buttons, highlights */
 }
 
+/* Body base styling */
 body {
   background: var(--bg);
   color: var(--primary);
 }
 
-/* Sidebar */
+/* === SIDEBAR === */
 .side-bar {
   width: 250px;
   background: var(--secondary);
@@ -31,19 +35,21 @@ body {
   height: 100vh;
 }
 
+/* Logo images */
 .logo-img {
   width: 152px;
   margin-bottom: 2rem;
 }
 
 .logo-light {
-  display: block;
+  display: block; /* Default: show light logo */
 }
 
 .logo-dark {
-  display: none;
+  display: none; /* Hide dark logo until dark mode is active */
 }
 
+/* Launch Career button */
 .launch-btn {
   width: 100%;
   padding: 0.75rem;
@@ -56,7 +62,7 @@ body {
   margin-top: 1rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /* Space between icon and text */
 }
 
 .launch-btn-icon {
@@ -67,7 +73,7 @@ body {
   display: inline-block;
 }
 
-/* Hide Launch Career button text in sidebar on small screens */
+/* Hide text in sidebar button on small screens */
 @media (max-width: 767px) {
   .launch-btn-text {
     display: none;
@@ -78,6 +84,7 @@ body {
   }
 }
 
+/* Hide Sidebar button */
 .hide-sidebar-btn {
   width: 100%;
   background: #f4f7ff;
@@ -90,6 +97,7 @@ body {
   margin-top: 1rem;
 }
 
+/* Theme toggle container */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -99,18 +107,21 @@ body {
   border-radius: 8px;
 }
 
+/* Toggle switch styling */
 .switch {
   position: relative;
   width: 36px;
   height: 20px;
 }
 
+/* Hide native checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
+/* Custom slider background */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -122,6 +133,7 @@ body {
   border-radius: 20px;
 }
 
+/* Slider knob */
 .slider::before {
   content: "";
   position: absolute;
@@ -134,21 +146,22 @@ body {
   transition: 0.3s;
 }
 
+/* Checked state background and knob movement */
 .switch input:checked + .slider {
   background: #645fc6;
 }
-
 .switch input:checked + .slider::before {
   transform: translateX(16px);
 }
 
-/* Main Content */
+/* === MAIN CONTENT === */
 .main-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
+/* Header bar at the top */
 .main-header {
   display: flex;
   align-items: center;
@@ -166,6 +179,7 @@ body {
   font-weight: 700;
 }
 
+/* Add New Task button */
 .add-task-btn {
   margin-left: auto;
   padding: 0.5rem 1rem;
@@ -184,7 +198,7 @@ body {
   background: #4e48c8;
 }
 
-/* Cards */
+/* === TASK CARDS === */
 .cards-container {
   padding: 1rem;
   flex: 1;
@@ -195,6 +209,7 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Column header styling */
 .task-heading {
   display: flex;
   align-items: center;
@@ -215,6 +230,7 @@ body {
   border-radius: 50%;
 }
 
+/* Colored dots for columns */
 .todo-clr {
   background: #49c4e5;
 }
@@ -227,6 +243,7 @@ body {
   background: #67e2ae;
 }
 
+/* Task card style */
 .task-card {
   background: var(--secondary);
   padding: 1rem;
@@ -238,6 +255,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Hover effect for task cards */
 .task-card:hover {
   transform: translateY(-5px);
   background: var(--accent);
@@ -245,7 +263,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Desktop Layout */
+/* === RESPONSIVE GRID === */
 @media (min-width: 768px) {
   body {
     display: flex;
@@ -264,7 +282,7 @@ body {
   }
 }
 
-/* Dark Mode */
+/* === DARK MODE === */
 body.dark {
   --bg: #20212c;
   --primary: #fff;
@@ -333,7 +351,7 @@ body.dark .hide-sidebar-btn:hover {
   background-color: #4e48c8;
 }
 
-/* Sidebar heading */
+/* === SIDEBAR HEADING === */
 .side-bar h4 {
   font-size: 12px;
   font-weight: 700;
@@ -344,7 +362,7 @@ body.dark .hide-sidebar-btn:hover {
   margin-bottom: 0.5rem;
 }
 
-/* Mobile Layout */
+/* === MOBILE STYLES === */
 @media (max-width: 767px) {
   body {
     display: block;
@@ -401,14 +419,14 @@ body.dark .hide-sidebar-btn:hover {
   }
 }
 
-/* Hide title & button text in header on small screens */
+/* === MOBILE HEADER CHANGES (MAX-WIDTH: 640px) === */
 @media (max-width: 640px) {
   .main-header .board-title {
-    display: none;
+    display: none; /* Hide "Launch Career" text */
   }
 
   .add-task-btn .add-text {
-    display: none;
+    display: none; /* Hide "Add New Task" text */
   }
 
   .add-task-btn {
@@ -437,4 +455,3 @@ body.dark .hide-sidebar-btn:hover {
     height: 24px;
   }
 }
-
