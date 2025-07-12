@@ -1,56 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Declares the document as an HTML5 file -->
+<html lang="en"> <!-- Sets the language of the page to English -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kanban</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" /> <!-- Sets character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Makes the layout responsive -->
+  <title>Kanban</title> <!-- Title of the page shown in the browser tab -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" /> <!-- Sets the small icon on the browser tab -->
+  <link rel="stylesheet" href="style.css" /> <!-- Links to the external stylesheet -->
 </head>
+
 <body>
+  <!-- Hidden input for theme toggling, can be used for dark mode switch logic -->
   <input type="checkbox" id="themeToggle" hidden />
 
-  <!-- Sidebar -->
-  <nav class="side-bar">
+  <!-- Sidebar begins -->
+  <nav class="side-bar"> <!-- Navigation section for the sidebar -->
+    
+    <!-- Top part of sidebar -->
     <div class="side-top">
-      <div class="logo-wrapper">
-        <img src="assets/logo-light.svg" class="logo-light logo-img" alt="Kanban logo light" />
-        <img src="assets/logo-dark.svg" class="logo-dark logo-img" alt="Kanban logo dark" />
+      <div class="logo-wrapper"> <!-- Logo container -->
+        <img src="assets/logo-light.svg" class="logo-light logo-img" alt="Kanban logo light" /> <!-- Light mode logo -->
+        <img src="assets/logo-dark.svg" class="logo-dark logo-img" alt="Kanban logo dark" /> <!-- Dark mode logo -->
       </div>
-      <h4>ALL BOARDS (1)</h4>
-      <button class="launch-btn">Launch Career</button>
+
+      <h4>ALL BOARDS (1)</h4> <!-- Section title indicating available boards -->
+      
+      <button class="launch-btn">Launch Career</button> <!-- Button for the current board -->
     </div>
 
+    <!-- Bottom part of sidebar -->
     <div class="sidebar-bottom">
+
+      <!-- Theme toggle switch (light/dark mode) -->
       <div class="theme-toggle">
-        <span>🌞</span>
-        <label class="switch">
-          <label for="themeSwitch" class="theme-switch-label">
-            <input type="checkbox" id="themeSwitch" title="Toggle dark mode" onchange="document.body.classList.toggle('dark')" />
-            <span class="slider"></span>
+        <span>🌞</span> <!-- Light mode icon -->
+        
+        <label class="switch"> <!-- Custom switch styling -->
+          <label for="themeSwitch" class="theme-switch-label" style="display: contents;">
+            <input 
+              type="checkbox" 
+              id="themeSwitch" 
+              title="Toggle dark mode" 
+              onchange="document.body.classList.toggle('dark')" 
+            /> <!-- Checkbox toggles dark mode by adding/removing 'dark' class -->
+            <span class="slider"></span> <!-- Visual part of the switch -->
           </label> 
         </label>
-        <span>🌙</span>
+        
+        <span>🌙</span> <!-- Dark mode icon -->
       </div>
+
+      <!-- Button to hide the sidebar (can be hooked with JS) -->
       <button class="hide-sidebar-btn">🚫 Hide Sidebar</button>
     </div>
   </nav>
+  <!-- Sidebar ends -->
 
+  <!-- Main content area begins -->
   <div class="main-wrapper">
+
+    <!-- Top header of the main board area -->
     <header class="main-header">
-      <img src="assets/favicon.svg" alt="favicon"/>
-      <h2 class="board-title">Launch Career</h2>
+      <img src="assets/favicon.svg" alt="favicon"/> <!-- Small icon shown in header -->
+
+      <h2 class="board-title">Launch Career</h2> <!-- Title of the current board (hidden in mobile view) -->
+
+      <!-- Add new task button -->
       <button class="add-task-btn">
-        <span class="add-icon">+</span>
-        <span class="add-text">Add New Task</span>
+        <span class="add-icon">+</span> <!-- Plus icon always visible -->
+        <span class="add-text">Add New Task</span> <!-- Text hidden on small screens -->
       </button>
     </header>
 
+    <!-- Kanban board columns -->
     <main class="cards-container">
-      <!-- TODO -->
+
+      <!-- TODO Column -->
       <section class="cards" data-status="todo">
-        <div class="task-heading"><span class="todo-clr"></span><h4>TODO (5)</h4></div>
+        <div class="task-heading">
+          <span class="todo-clr"></span> <!-- Colored dot (blue) for TODO -->
+          <h4>TODO (5)</h4> <!-- Column title and number of tasks -->
+        </div>
+
         <ul class="task-list">
+          <!-- Each list item is a task card -->
           <li class="task-card">Launch Epic Career 🚀</li>
           <li class="task-card">Learn Data Structures and Algorithms 📚</li>
           <li class="task-card">Conquer React ⚛️</li>
@@ -59,9 +91,13 @@
         </ul>
       </section>
 
-      <!-- DOING -->
+      <!-- DOING Column -->
       <section class="cards" data-status="doing">
-        <div class="task-heading"><span class="doing-clr"></span><h4>DOING (3)</h4></div>
+        <div class="task-heading">
+          <span class="doing-clr"></span> <!-- Colored dot (purple) for DOING -->
+          <h4>DOING (3)</h4> <!-- Column title and number of tasks -->
+        </div>
+
         <ul class="task-list">
           <li class="task-card">Master JavaScript 💛</li>
           <li class="task-card">Keep on Going 🏆</li>
@@ -69,9 +105,13 @@
         </ul>
       </section>
 
-      <!-- DONE -->
+      <!-- DONE Column -->
       <section class="cards" data-status="done">
-        <div class="task-heading"><span class="done-clr"></span><h4>DONE (4)</h4></div>
+        <div class="task-heading">
+          <span class="done-clr"></span> <!-- Colored dot (green) for DONE -->
+          <h4>DONE (4)</h4> <!-- Column title and number of tasks -->
+        </div>
+
         <ul class="task-list">
           <li class="task-card">Contribute to Open Source Projects 🌐</li>
           <li class="task-card">Build Portfolio Projects 🛠️</li>
@@ -79,7 +119,13 @@
           <li class="task-card">Have fun 🥳</li>
         </ul>
       </section>
+
     </main>
+    <!-- Main Kanban board ends -->
+
   </div>
+  <!-- Main content wrapper ends -->
+
 </body>
 </html>
+
