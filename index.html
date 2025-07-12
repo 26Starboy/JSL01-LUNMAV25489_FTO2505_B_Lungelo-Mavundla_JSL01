@@ -1,67 +1,85 @@
-<html>
-  <head>
-    <meta />
-    <meta />
-    <title>Document</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kanban</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <input type="checkbox" id="themeToggle" hidden />
 
-  <body>
-    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
-    <nav>
-      <div>
-        <h4>ALL BOARDS (1)</h4>
-        <button>Launch Career</button>
+  <!-- Sidebar -->
+  <nav class="side-bar">
+    <div class="side-top">
+      <div class="logo-wrapper">
+        <img src="assets/logo-light.svg" class="logo-light logo-img" alt="Kanban logo light" />
+        <img src="assets/logo-dark.svg" class="logo-dark logo-img" alt="Kanban logo dark" />
       </div>
-    </nav>
-
-    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
-    <div>
-      <header>
-        <div>
-          <h2>Launch Career</h2>
-        </div>
-      </header>
-
-      <div>
-        <main>
-          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
-          <div>
-            <div>
-              <span></span>
-              <h4>TODO</h4>
-            </div>
-            <!-- Tasks container for TODO -->
-            <div>
-              <div>Launch Epic Career 🚀</div>
-              <div>Learn Data Structures and Algorithms 📚</div>
-            </div>
-          </div>
-          <!-- DOING Column -->
-          <div>
-            <div>
-              <span></span>
-              <h4>DOING</h4>
-            </div>
-            <!-- Tasks container for DOING -->
-            <div>
-              <div>Master JavaScript 💛</div>
-              <div>Keep on Going 🏆</div>
-            </div>
-          </div>
-          <!-- DONE Column -->
-          <div>
-            <div>
-              <span></span>
-              <h4>DONE</h4>
-            </div>
-            <!-- Tasks container for DONE -->
-            <div>
-              <div>Contribute to Open Source Projects 🌐</div>
-              <div>Build Portfolio Projects 🛠️</div>
-            </div>
-          </div>
-        </main>
-      </div>
+      <h4>ALL BOARDS (1)</h4>
+      <button class="launch-btn">Launch Career</button>
     </div>
-  </body>
+
+    <div class="sidebar-bottom">
+      <div class="theme-toggle">
+        <span>🌞</span>
+        <label class="switch">
+          <label for="themeSwitch" style="display: contents;">
+            <input type="checkbox" id="themeSwitch" title="Toggle dark mode" onchange="document.body.classList.toggle('dark')" />
+            <span class="slider"></span>
+          </label>
+        </label>
+        <span>🌙</span>
+      </div>
+      <button class="hide-sidebar-btn">🚫 Hide Sidebar</button>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <header class="main-header">
+      <img src="assets/favicon.svg" alt="favicon"/>
+      <h2 class="board-title">Launch Career</h2>
+      <button class="add-task-btn">
+        <span class="add-icon">+</span>
+        <span class="add-text">Add New Task</span>
+      </button>
+    </header>
+
+    <main class="cards-container">
+      <!-- TODO -->
+      <section class="cards" data-status="todo">
+        <div class="task-heading"><span class="todo-clr"></span><h4>TODO (5)</h4></div>
+        <ul class="task-list">
+          <li class="task-card">Launch Epic Career 🚀</li>
+          <li class="task-card">Learn Data Structures and Algorithms 📚</li>
+          <li class="task-card">Conquer React ⚛️</li>
+          <li class="task-card">Understand Databases ⚙️</li>
+          <li class="task-card">Crush Frameworks 🖼️</li>
+        </ul>
+      </section>
+
+      <!-- DOING -->
+      <section class="cards" data-status="doing">
+        <div class="task-heading"><span class="doing-clr"></span><h4>DOING (3)</h4></div>
+        <ul class="task-list">
+          <li class="task-card">Master JavaScript 💛</li>
+          <li class="task-card">Keep on Going 🏆</li>
+          <li class="task-card">Never Give Up 🏆</li>
+        </ul>
+      </section>
+
+      <!-- DONE -->
+      <section class="cards" data-status="done">
+        <div class="task-heading"><span class="done-clr"></span><h4>DONE (4)</h4></div>
+        <ul class="task-list">
+          <li class="task-card">Contribute to Open Source Projects 🌐</li>
+          <li class="task-card">Build Portfolio Projects 🛠️</li>
+          <li class="task-card">Explore ES6 Features 🚀</li>
+          <li class="task-card">Have fun 🥳</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
 </html>
